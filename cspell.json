@@ -1,0 +1,13 @@
+{
+  "_comment": "エラーを無視したい単語があれば「words」の中に追記してください",
+  "version": "0.1",
+  "language": "en",
+  "words": [
+    "mkdirp",
+    "tsmerge",
+    "githubusercontent",
+    "streetsidesoftware",
+    "vsmarketplacebadge",
+    "visualstudio"
+  ]
+}

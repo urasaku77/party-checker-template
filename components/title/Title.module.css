@@ -1,0 +1,41 @@
+.flex {
+    display: flex;
+    /*横並び*/
+}
+
+.flex .image {
+    width: 500px;
+    /*画像サイズ指定*/
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.flex .title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: clamp(1.5rem, 2vw + 1rem, 4rem);
+    text-align: center;
+
+    padding: 0;
+    font-weight: bold;
+}
+
+.flex .text {
+    margin: 10px 0 0;
+    padding: 0;
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    text-align: right;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .image {
+        display: none;
+    }
+
+    .flex .text {
+        text-align: center;
+    }
+}
