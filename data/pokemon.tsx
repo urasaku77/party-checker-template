@@ -449,6 +449,7 @@ export class Pokemon implements Data {
   ]
 
   baned = [
+    'メタモン',
     'ミミッキュ',
     'コライドン',
     'ミライドン',
@@ -456,7 +457,6 @@ export class Pokemon implements Data {
     'パオジアン',
     'ディンルー',
     'イーユイ',
-    'ゾロア(ヒスイ)',
     'ゾロアーク(ヒスイ)',
   ]
 
