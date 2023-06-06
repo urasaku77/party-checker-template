@@ -47,8 +47,9 @@ export function Input(props: Props) {
 
   useEffect(() => {
     if (value) {
-      if (data.warning[0] == value) {
-        setWarning('特性『かわりもの』のメタモンは禁止です')
+      if (data.warning.has(value)) {
+        //TODO:このエラーどうやって治すん
+        setWarning(data.warning.get(value))
         setOpen(true)
       }
       if (data.baned.includes(value)) {

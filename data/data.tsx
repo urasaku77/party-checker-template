@@ -6,5 +6,5 @@ interface Data {
   }[]
   baned: string[]
   limited: string[][]
-  warning: string[]
+  warning: Map<string, string>
 }

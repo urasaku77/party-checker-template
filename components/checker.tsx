@@ -59,18 +59,19 @@ export function Checker() {
   }
 
   function onclick() {
-    let count = [0, 0]
     const party = [value1, value2, value3, value4, value5, value6]
     const limited = new Pokemon().limited
+    var count = new Array(limited.length)
+    count.fill(0)
     party.forEach((element) => {
-      //TODO:まとめて判定できそう
-      if (limited[0].includes(element)) {
-        count[0]++
-      } else if (limited[1].includes(element)) {
-        count[1]++
+      console.log(limited.length)
+      for (let i = 0; i < limited.length; i++) {
+        if (limited[i].includes(element)) {
+          count[i]++
+        }
       }
     })
-    if (count[0] > 1 || count[1] > 1) {
+    if (Math.max(...count) > 1) {
       setCheck(false)
     } else {
       setCheck(true)

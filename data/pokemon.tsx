@@ -485,5 +485,5 @@ export class Pokemon implements Data {
     ],
   ]
 
-  warning = ['メタモン']
+  warning = new Map([['メタモン', '特性『かわりもの』のメタモンは禁止です']])
 }
