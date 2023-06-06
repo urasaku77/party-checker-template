@@ -5,5 +5,6 @@ interface Data {
     label: string
   }[]
   baned: string[]
-  limited: string[]
+  limited: string[][]
+  warning: string[]
 }

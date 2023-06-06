@@ -1,6 +1,6 @@
-import { Menu } from '../menu/menu'
-import styles from './Rule.module.css'
 import React from 'react'
+import styles from './Rule.module.css'
+import { Menu } from '../menu/menu'
 
 export function Rule() {
   return (
@@ -22,8 +22,8 @@ export function Rule() {
         <p>
           <ul>
             <li>ミミッキュ</li>
-            <li>メタモン</li>
-            <li>ゾロアーク(ヒスイ)</li>
+            <li>メタモン（かわりもの）</li>
+            <li>ゾロアーク（ヒスイ）</li>
             <li>伝説（ミライドン、コライドン）</li>
             <li>準伝説（イーユイ、パオジアン、ディンルー、チオンジェン）</li>
           </ul>

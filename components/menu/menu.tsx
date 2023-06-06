@@ -1,6 +1,6 @@
-import styles from './Menu.module.css'
-import Image from 'next/image'
 import React from 'react'
+import Image from 'next/image'
+import styles from './Menu.module.css'
 
 type Props = {
   title: string

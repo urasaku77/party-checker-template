@@ -1,14 +1,14 @@
-import { Input } from '../input/input'
-import { Menu } from '../../components/menu/menu'
-import { Button, Grid, Box } from '@mui/material'
 import React, { useState } from 'react'
-import { Pokemon } from '../../data/pokemon'
+import { Button, Grid, Box } from '@mui/material'
+import { Menu } from './menu/menu'
+import { Input } from './input'
+import { Result } from './result'
+import { Pokemon } from '../data/pokemon'
 
-type Props = {
-  updateVisible: (num: number) => void
-}
+export function Checker() {
+  const [check, setCheck] = useState(false)
 
-export function Checker(props: Props) {
+  //TODO:ここをなんとかしたい
   const [error1, setError1] = useState(false)
   const handleInputChange1 = (bool: boolean) => {
     setError1(bool)
@@ -59,26 +59,35 @@ export function Checker(props: Props) {
   }
 
   function onclick() {
-    let count = 0
+    let count = [0, 0]
     const party = [value1, value2, value3, value4, value5, value6]
     const limited = new Pokemon().limited
     party.forEach((element) => {
-      if (limited.includes(element)) {
-        count++
+      //TODO:まとめて判定できそう
+      if (limited[0].includes(element)) {
+        count[0]++
+      } else if (limited[1].includes(element)) {
+        count[1]++
       }
     })
-    if (count > 1) {
-      props.updateVisible(2)
+    if (count[0] > 1 || count[1] > 1) {
+      setCheck(false)
     } else {
-      props.updateVisible(1)
+      setCheck(true)
     }
+    setOpen(true)
+  }
+
+  const [open, setOpen] = React.useState(false)
+  const handleClose = () => {
+    setOpen(false)
   }
 
   return (
     <Grid container alignItems="center" justifyContent="center" direction="column">
       <Grid item xs={12}>
         <Box pt={3}>
-          <Menu title="パーティチェック" image="/nc139233.png" />
+          <Menu title="パーティチェック" image="/EmHlzzLXEAAgVLq.jpg" />
         </Box>
       </Grid>
       <Grid item xs={12}>
@@ -120,6 +129,7 @@ export function Checker(props: Props) {
           >
             チェック
           </Button>
+          <Result check={check} open={open} onClose={handleClose} />
         </Box>
       </Grid>
     </Grid>

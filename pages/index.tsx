@@ -1,18 +1,13 @@
-import Head from 'next/head'
-import { useState } from 'react'
-import styles from '../styles/Home.module.css'
 import React from 'react'
+import Head from 'next/head'
+import { Grid, Box } from '@mui/material'
+import styles from '../styles/Home.module.css'
 import { Title } from '../components/title/title'
 import { Rule } from '../components/rule/rule'
-import { Checker } from '../components/checker/checker'
-import { Result } from '../components/result/result'
-import { Grid, Box } from '@mui/material'
+import { Step } from '../components/step'
+import { Checker } from '../components/checker'
 
 export default function Home() {
-  const [visible, setVisible] = useState(0)
-  const handleUpdateVisible = (num: number) => {
-    setVisible(num)
-  }
   return (
     <div className={styles.container}>
       <Head>
@@ -23,31 +18,22 @@ export default function Home() {
 
       <main className={styles.main}>
         <Title />
-
         <Rule />
-        <Grid container spacing={2} alignItems="center" justifyContent="center">
-          <Grid item md={4} xs={12}>
+        <Grid container spacing={2} justifyContent="center">
+          <Grid item md={6} xs={12}>
             <Box pt={3}>
-              <Checker updateVisible={handleUpdateVisible} />
+              <Step />
             </Box>
           </Grid>
-          <Grid item md={4} xs={12}>
+          <Grid item md={6} xs={12}>
             <Box pt={3}>
-              <Result visible={visible} />
+              <Checker />
             </Box>
           </Grid>
         </Grid>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Developed by {'〇〇'}
-        </a>
-      </footer>
+      <footer className={styles.footer}>Developed by {'〇〇'}</footer>
     </div>
   )
 }

@@ -1,6 +1,6 @@
-import styles from './Title.module.css'
-import Image from 'next/image'
 import React from 'react'
+import Image from 'next/image'
+import styles from './Title.module.css'
 
 export function Title() {
   return (
