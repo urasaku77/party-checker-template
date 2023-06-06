@@ -24,6 +24,10 @@
   text-align: center;
 }
 
+.card h3 {
+  color: red;
+}
+
 .card p {
   margin: 0;
   font-size: 1rem;
