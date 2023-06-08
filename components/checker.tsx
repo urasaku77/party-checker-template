@@ -1,87 +1,68 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Grid, Box } from '@mui/material'
 import { Menu } from './menu/menu'
 import { Input } from './input'
 import { Result } from './result'
 import { Pokemon } from '../data/pokemon'
 
-export function Checker() {
-  const [check, setCheck] = useState(false)
+const CHECK_NUM = 6
+const LIMITED = new Pokemon().limited
 
-  //TODO:ここをなんとかしたい
-  const [error1, setError1] = useState(false)
-  const handleInputChange1 = (bool: boolean) => {
-    setError1(bool)
+type Input = {
+  isError: boolean
+  value: string
+}
+
+export function Checker() {
+  var checkList: JSX.Element[] = []
+  var countList: number[] = new Array(LIMITED.length)
+
+  const [isCheck, setIsCheck] = useState(false)
+  const [isButton, setIsButton] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const handleClose = () => {
+    setIsOpen(false)
   }
-  const [value1, setValue1] = useState('')
-  const handleUpdateValue1 = (val: string) => {
-    setValue1(val)
+
+  const [inputs, setInputs] = useState<Input[]>(Array(CHECK_NUM).fill({ input: false, value: '' }))
+  const handleInputChange = (num: number, bool: boolean, str: string) => {
+    setInputs(inputs.map((input, index) => (index === num ? { isError: bool, value: str } : input)))
   }
-  const [error2, setError2] = useState(false)
-  const handleInputChange2 = (bool: boolean) => {
-    setError2(bool)
-  }
-  const [value2, setValue2] = useState('')
-  const handleUpdateValue2 = (val: string) => {
-    setValue2(val)
-  }
-  const [error3, setError3] = useState(false)
-  const handleInputChange3 = (bool: boolean) => {
-    setError3(bool)
-  }
-  const [value3, setValue3] = useState('')
-  const handleUpdateValue3 = (val: string) => {
-    setValue3(val)
-  }
-  const [error4, setError4] = useState(false)
-  const handleInputChange4 = (bool: boolean) => {
-    setError4(bool)
-  }
-  const [value4, setValue4] = useState('')
-  const handleUpdateValue4 = (val: string) => {
-    setValue4(val)
-  }
-  const [error5, setError5] = useState(false)
-  const handleInputChange5 = (bool: boolean) => {
-    setError5(bool)
-  }
-  const [value5, setValue5] = useState('')
-  const handleUpdateValue5 = (val: string) => {
-    setValue5(val)
-  }
-  const [error6, setError6] = useState(false)
-  const handleInputChange6 = (bool: boolean) => {
-    setError6(bool)
-  }
-  const [value6, setValue6] = useState('')
-  const handleUpdateValue6 = (val: string) => {
-    setValue6(val)
-  }
+
+  useEffect(() => {
+    if (!inputs.map((input) => input.isError).includes(false) && !inputs.map((input) => input.value).includes('')) {
+      setIsButton(true)
+    } else {
+      setIsButton(false)
+    }
+  }, [inputs])
 
   function onclick() {
-    const party = [value1, value2, value3, value4, value5, value6]
-    const limited = new Pokemon().limited
-    var count = new Array(limited.length)
-    count.fill(0)
-    party.forEach((element) => {
-      console.log(limited.length)
-      for (let i = 0; i < limited.length; i++) {
-        if (limited[i].includes(element)) {
-          count[i]++
+    const values = inputs.map((input) => input.value)
+    countList.fill(0)
+    values.forEach((element) => {
+      for (let i = 0; i < LIMITED.length; i++) {
+        if (LIMITED[i].name.includes(element)) {
+          countList[i] = countList[i] + 1
         }
       }
     })
-    if (Math.max(...count) > 1) {
-      setCheck(false)
+    if (countList.filter((value, index) => value > LIMITED[index].num).length) {
+      setIsCheck(false)
     } else {
-      setCheck(true)
+      setIsCheck(true)
     }
-    setOpen(true)
+    setIsOpen(true)
   }
 
-  const [open, setOpen] = React.useState(false)
-  const handleClose = () => {
-    setOpen(false)
+  for (var i = 0; i < CHECK_NUM; i++) {
+    checkList.push(
+      <Grid item xs={12}>
+        <Box pt={3}>
+          <Input num={i} index={i + 1} value={inputs[i].value} update={handleInputChange} />
+        </Box>
+      </Grid>
+    )
   }
 
   return (
@@ -91,46 +72,13 @@ export function Checker() {
           <Menu title="パーティチェック" image="/EmHlzzLXEAAgVLq.jpg" />
         </Box>
       </Grid>
+      {checkList}
       <Grid item xs={12}>
         <Box pt={3}>
-          <Input num={1} value={value1} updateValue={handleUpdateValue1} updateValidation={handleInputChange1} />
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box pt={3}>
-          <Input num={2} value={value2} updateValue={handleUpdateValue2} updateValidation={handleInputChange2} />
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box pt={3}>
-          <Input num={3} value={value3} updateValue={handleUpdateValue3} updateValidation={handleInputChange3} />
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box pt={3}>
-          <Input num={4} value={value4} updateValue={handleUpdateValue4} updateValidation={handleInputChange4} />
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box pt={3}>
-          <Input num={5} value={value5} updateValue={handleUpdateValue5} updateValidation={handleInputChange5} />
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box pt={3}>
-          <Input num={6} value={value6} updateValue={handleUpdateValue6} updateValidation={handleInputChange6} />
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box pt={3}>
-          <Button
-            variant="contained"
-            onClick={onclick}
-            disabled={[error1, error2, error3, error4, error5, error6].includes(false)}
-          >
+          <Button variant="contained" onClick={onclick} disabled={!isButton}>
             チェック
           </Button>
-          <Result check={check} open={open} onClose={handleClose} />
+          <Result check={isCheck} open={isOpen} onClose={handleClose} />
         </Box>
       </Grid>
     </Grid>

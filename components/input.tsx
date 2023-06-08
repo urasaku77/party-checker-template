@@ -33,9 +33,9 @@ const styles = makeStyles((theme) =>
 
 type Props = {
   num: number
+  index: number
   value: string
-  updateValue: (val: string) => void
-  updateValidation: (bool: boolean) => void
+  update: (num: number, bool: boolean, str: string) => void
 }
 
 export function Input(props: Props) {
@@ -48,25 +48,22 @@ export function Input(props: Props) {
   useEffect(() => {
     if (value) {
       if (data.warning.has(value)) {
-        //TODO:このエラーどうやって治すん
-        setWarning(data.warning.get(value))
+        setWarning(data.warning.get(value)!)
         setOpen(true)
       }
       if (data.baned.includes(value)) {
         setErrorMessage(['その' + data.type + 'は使用禁止です'])
-        props.updateValidation(false)
-      } else if (data.limited.some((v) => v.includes(value))) {
+        props.update(props.num, false, value)
+      } else if (data.limited.some((v) => v.name.includes(value))) {
         setErrorMessage(['その' + data.type + 'は制限されています'])
-        props.updateValidation(true)
+        props.update(props.num, true, value)
       } else {
         setErrorMessage([''])
-        props.updateValidation(true)
+        props.update(props.num, true, value)
       }
-      props.updateValue(value)
     } else {
       setErrorMessage([''])
-      props.updateValidation(false)
-      props.updateValue('')
+      props.update(props.num, false, '')
     }
   }, [value])
 
@@ -90,7 +87,7 @@ export function Input(props: Props) {
         renderInput={(params) => (
           <TextField
             {...params}
-            label={props.num.toString() + data.label}
+            label={props.index.toString() + data.label}
             error={errorMessage[0].includes('禁止')}
             className={errorMessage[0].includes('制限') ? classes.warningStyles : undefined}
             helperText={errorMessage[0]}

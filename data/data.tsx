@@ -5,6 +5,9 @@ interface Data {
     label: string
   }[]
   baned: string[]
-  limited: string[][]
+  limited: {
+    name: string[]
+    num: number
+  }[]
   warning: Map<string, string>
 }
