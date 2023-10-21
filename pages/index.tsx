@@ -33,7 +33,7 @@ export default function Home() {
         </Grid>
       </main>
 
-      <footer className={styles.footer}>Developed by {'〇〇'}</footer>
+      <footer className={styles.footer}>Developed by {'ふー'}</footer>
     </div>
   )
 }
