@@ -10,8 +10,7 @@ export function Title() {
       </figure>
       <div className={styles.right}>
         <p className={styles.title}>第9回パパママ杯</p>
-        <p className={styles.title}>~パルデア篇~</p>
-        <p className={styles.text}>日時：5/20(土) 23:00~23:59</p>
+        <p className={styles.text}>日時：11/25(土) 23:00~23:59</p>
       </div>
     </div>
   )

@@ -54,7 +54,7 @@ export function Step() {
     <Grid container alignItems="center" justifyContent="center" direction="column">
       <Grid item xs={12}>
         <Box pt={3} p={3}>
-          <Menu title="使い方" image="/nc139233.png" />
+          <Menu title="使い方" image="/nc139230.png" />
         </Box>
       </Grid>
       <Grid item xs={12}>

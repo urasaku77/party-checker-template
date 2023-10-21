@@ -14,8 +14,8 @@ type Input = {
 }
 
 export function Checker() {
-  var checkList: JSX.Element[] = []
-  var countList: number[] = new Array(LIMITED.length)
+  const checkList: JSX.Element[] = []
+  const countList: number[] = new Array(LIMITED.length)
 
   const [isCheck, setIsCheck] = useState(false)
   const [isButton, setIsButton] = useState(false)
@@ -47,7 +47,10 @@ export function Checker() {
         }
       }
     })
-    if (countList.filter((value, index) => value > LIMITED[index].num).length) {
+    if (
+      countList.filter((value, index) => value > LIMITED[index].num).length ||
+      countList.filter((value, index) => value > 0).length > 1
+    ) {
       setIsCheck(false)
     } else {
       setIsCheck(true)
@@ -55,7 +58,7 @@ export function Checker() {
     setIsOpen(true)
   }
 
-  for (var i = 0; i < CHECK_NUM; i++) {
+  for (let i = 0; i < CHECK_NUM; i++) {
     checkList.push(
       <Grid item xs={12}>
         <Box pt={3}>
@@ -69,7 +72,7 @@ export function Checker() {
     <Grid container alignItems="center" justifyContent="center" direction="column">
       <Grid item xs={12}>
         <Box pt={3}>
-          <Menu title="パーティチェック" image="/EmHlzzLXEAAgVLq.jpg" />
+          <Menu title="パーティチェック" image="/nc139233.png" />
         </Box>
       </Grid>
       {checkList}
