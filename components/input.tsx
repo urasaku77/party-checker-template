@@ -42,7 +42,7 @@ export function Input(props: Props) {
   const data = new Pokemon()
   const classes = styles()
 
-  const [value, setValue] = useState()
+  const [value, setValue] = useState<any>()
   const [errorMessage, setErrorMessage] = useState([''])
 
   useEffect(() => {

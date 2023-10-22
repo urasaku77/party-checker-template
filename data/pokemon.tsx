@@ -1,3 +1,5 @@
+import { Data } from './data'
+
 export class Pokemon implements Data {
   type = 'ポケモン'
   label = '体目'

@@ -1,4 +1,4 @@
-interface Data {
+export interface Data {
   type: string
   label: string
   list: {
