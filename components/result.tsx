@@ -37,7 +37,7 @@ export function Result(props: Props) {
   }, [props.check])
 
   return (
-    <Dialog open={props.open} onClose={props.onClose}>
+    <Dialog fullScreen open={props.open} onClose={props.onClose}>
       <DialogTitle>結果</DialogTitle>
       <DialogContent>
         <Grid container alignItems="center" justifyContent="center" direction="column">
