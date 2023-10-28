@@ -9,9 +9,11 @@ export function Rule() {
         <Menu title="共通ルール" image="/nc139223.png" />
         <p>
           <ul>
+            <li>
+              <h3>TOD禁止（1時間5戦のみのため）</h3>
+            </li>
             <li>シングル63</li>
             <li>同じポケモン&もちもの禁止</li>
-            <li>TOD禁止（1時間5戦のみのため）</li>
             <li>600族ポケモンは制限なし</li>
           </ul>
           <h2>禁止ポケモン</h2>
