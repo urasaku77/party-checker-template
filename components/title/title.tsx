@@ -5,9 +5,9 @@ import styles from './Title.module.css'
 export function Title() {
   return (
     <div className={styles.flex}>
-      <figure className={styles.image}>
+      {/* <figure className={styles.image}>
         <Image src="/header.png" layout="fill" objectFit="contain" />
-      </figure>
+      </figure> */}
       <div className={styles.right}>
         <p className={styles.title}>第9回パパママ杯</p>
         <p className={styles.text}>日時：11/25(土) 23:00~23:59</p>
