@@ -24,10 +24,10 @@ type Props = {
   onClose: () => void
 }
 
-const password = '『02502580』'
-
 export function Result(props: Props) {
   const [value, setValue] = useState<Value>({ color: 'info', title: 'info', message: '' })
+  const password = Date.now()
+
   useEffect(() => {
     if (props.check) {
       setValue({ color: 'success', title: 'OK', message: 'チェック成功しました' })
