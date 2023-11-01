@@ -1,0 +1,27 @@
+.grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    max-width: 1500px;
+    margin-top: 3rem;
+}
+
+.grid p {
+    color: red;
+}
+
+.grid a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        margin-top: 1rem;
+    }
+}

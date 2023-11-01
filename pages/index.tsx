@@ -6,6 +6,7 @@ import { Title } from '../components/title/title'
 import { Rule } from '../components/rule/rule'
 import { Step } from '../components/step'
 import { Checker } from '../components/checker'
+import { Contact } from '../components/contact/contact'
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
             </Box>
           </Grid>
         </Grid>
+        <Contact />
       </main>
 
       <footer className={styles.footer}>Developed by {'ふー'}</footer>
