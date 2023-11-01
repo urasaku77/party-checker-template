@@ -14,12 +14,33 @@ export function Rule(): JSX.Element {
             </li>
             <li>シングル63</li>
             <li>同じポケモン&もちもの禁止</li>
-            <li>600族ポケモンは制限なし</li>
+            <li>
+              <a
+                href="https://yakkun.com/sv/zukan/search/?search=1&r1=0&r2=0&r3=0&stats_min_7=600&stats_max_7=600"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                600族ポケモン
+              </a>
+              は制限なし
+            </li>
           </ul>
           <h2>禁止ポケモン</h2>
           <ul>
-            <li>メタモン（かわりもの/じゅうなん共に）</li>
-            <li>幻ポケモン</li>
+            <li>
+              <a href="https://yakkun.com/sv/zukan/n132" target="_blank" rel="noopener noreferrer">
+                メタモン（かわりもの/じゅうなん共に）
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://yakkun.com/sv/zukan/search/?search=1&r0=0&r1=0&r2=0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                幻ポケモン
+              </a>
+            </li>
           </ul>
         </p>
       </a>
@@ -30,13 +51,49 @@ export function Rule(): JSX.Element {
           <h3>以下のどちらかを選択</h3>
           <h2>ルール①</h2>
           <ul>
-            <li>禁止級伝説1体のみ使用可能</li>
-            <li>準伝説（パラドックス、四災、ウーラオス、ガチグマ(アカツキ)、オーガポン含む）使用不可</li>
+            <li>
+              <a
+                href="https://yakkun.com/sv/zukan/search/?search=1&r0=0&r1=0&r3=0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                禁止級伝説
+              </a>
+              1体のみ使用可能
+            </li>
+            <li>
+              <a
+                href="https://yakkun.com/sv/zukan/search/?search=1&r0=0&r2=0&r3=0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                準伝説（パラドックス、四災、ウーラオス、オーガポン含む）
+              </a>
+              使用不可
+            </li>
           </ul>
           <h2>ルール②</h2>
           <ul>
-            <li>準伝説（同上）2体まで使用可能</li>
-            <li>禁止級伝説使用不可</li>
+            <li>
+              <a
+                href="https://yakkun.com/sv/zukan/search/?search=1&r0=0&r2=0&r3=0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                準伝説（パラドックス、四災、ウーラオス、オーガポン含む）
+              </a>
+              2体まで使用可能
+            </li>
+            <li>
+              <a
+                href="https://yakkun.com/sv/zukan/search/?search=1&r0=0&r1=0&r3=0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                禁止級伝説
+              </a>
+              使用不可
+            </li>
           </ul>
         </p>
       </a>

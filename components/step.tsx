@@ -9,7 +9,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 const steps = [
   {
     label: 'ルールをよく読む',
-    description: `まずはルールと禁止・制限事項をしっかり確認してください。わからない点があれば主催者に確認してください。`,
+    description: `まずはルールと禁止・制限事項をしっかり確認してください。わからない点があれば主催者に確認してください。下線が引いてあるポケモン・分類はクリック（タップ）するとポケ徹のリンクに飛ぶので詳細を確認して下さい。`,
   },
   {
     label: 'パーティを決める',
