@@ -41,10 +41,10 @@ export function Result(props: Props): JSX.Element {
   }, [props.check])
 
   return (
-    <Dialog fullScreen open={props.open} onClose={props.onClose}>
-      <DialogTitle>結果</DialogTitle>
-      <DialogContent>
-        <Grid container alignItems="center" justifyContent="center" direction="column">
+    <Dialog fullScreen open={props.open} onClose={props.onClose} sx={{ justifyContent: 'flex-start' }}>
+      <DialogTitle align="center">結果</DialogTitle>
+      <Grid container alignItems="center" justifyContent="center" direction="column">
+        <DialogContent>
           <Grid item xs={12}>
             <Alert severity={value.color}>
               <AlertTitle>{value.title}</AlertTitle>
@@ -61,9 +61,9 @@ export function Result(props: Props): JSX.Element {
               <strong>{props.tn}</strong>
             </Box>
           </Grid>
-        </Grid>
-      </DialogContent>
-      <DialogActions>
+        </DialogContent>
+      </Grid>
+      <DialogActions sx={{ justifyContent: 'center' }}>
         <Button onClick={props.onClose}>閉じる</Button>
       </DialogActions>
     </Dialog>
