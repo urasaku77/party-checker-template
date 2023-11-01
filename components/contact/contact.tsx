@@ -4,7 +4,7 @@ import Alert from '@mui/material/Alert'
 import AlertTitle from '@mui/material/AlertTitle'
 import Grid from '@mui/material/Grid'
 
-export function Contact() {
+export function Contact(): JSX.Element {
   return (
     <div className={styles.grid}>
       <Grid container alignItems="center" justifyContent="center" direction="column">

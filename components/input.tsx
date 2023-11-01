@@ -8,7 +8,7 @@ function hiraToKata(str: string): string {
   return str.replace(/[\u3041-\u3096]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) + 0x60))
 }
 
-const styles = makeStyles((theme) =>
+const styles = makeStyles(() =>
   createStyles({
     root: {},
 
@@ -38,17 +38,17 @@ type Props = {
   update: (num: number, bool: boolean, str: string) => void
 }
 
-export function Input(props: Props) {
+export function Input(props: Props): JSX.Element {
   const data = new Pokemon()
   const classes = styles()
 
-  const [value, setValue] = useState<any>()
+  const [value, setValue] = useState('')
   const [errorMessage, setErrorMessage] = useState([''])
 
   useEffect(() => {
     if (value) {
       if (data.warning.has(value)) {
-        setWarning(data.warning.get(value)!)
+        setWarning(data.warning.get(value))
         setOpen(true)
       }
       if (data.baned.includes(value)) {
@@ -78,12 +78,10 @@ export function Input(props: Props) {
       <Autocomplete
         value={value}
         options={data.list}
-        onChange={(event: any, newValue: any) => {
-          setValue(newValue != null ? newValue.label : '')
+        onChange={(_event, newValue) => {
+          setValue(newValue != null ? newValue : '')
         }}
-        filterOptions={(options, { inputValue }) =>
-          options.filter((option) => option.label.includes(hiraToKata(inputValue)))
-        }
+        filterOptions={(options, { inputValue }) => options.filter((option) => option.includes(hiraToKata(inputValue)))}
         renderInput={(params) => (
           <TextField
             {...params}

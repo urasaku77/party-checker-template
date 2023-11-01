@@ -25,7 +25,7 @@ type Props = {
   onClose: () => void
 }
 
-export function Result(props: Props) {
+export function Result(props: Props): JSX.Element {
   const [value, setValue] = useState<Value>({ color: 'info', title: 'info', message: '' })
 
   useEffect(() => {

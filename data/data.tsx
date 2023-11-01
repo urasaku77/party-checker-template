@@ -1,9 +1,7 @@
 export interface Data {
   type: string
   label: string
-  list: {
-    label: string
-  }[]
+  list: string[]
   baned: string[]
   limited: {
     name: string[]

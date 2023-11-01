@@ -19,13 +19,13 @@ export interface Props {
   onClose: () => void
 }
 
-export function Warning(props: Props) {
+export function Warning(props: Props): JSX.Element {
   const handleButton = () => {
     props.onClose()
     setChecked(false)
   }
 
-  const handleClose = (event: any, reason: string) => {
+  const handleClose = (_event: unknown, reason: string) => {
     if (reason && reason == 'backdropClick') return
     props.onClose()
     setChecked(false)

@@ -44,7 +44,7 @@ const styles = makeStyles(() =>
   })
 )
 
-export function Step() {
+export function Step(): JSX.Element {
   const theme = useTheme()
   const classes = styles()
   const [activeStep, setActiveStep] = React.useState(0)

@@ -13,7 +13,7 @@ type Input = {
   value: string
 }
 
-export function Checker() {
+export function Checker(): JSX.Element {
   const checkList: JSX.Element[] = []
   const countList: number[] = new Array(LIMITED.length)
 

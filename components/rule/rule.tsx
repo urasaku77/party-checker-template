@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Rule.module.css'
 import { Menu } from '../menu/menu'
 
-export function Rule() {
+export function Rule(): JSX.Element {
   return (
     <div className={styles.grid}>
       <a className={styles.card}>

@@ -1,8 +1,8 @@
 import React from 'react'
-import Image from 'next/image'
+//import Image from 'next/image'
 import styles from './Title.module.css'
 
-export function Title() {
+export function Title(): JSX.Element {
   return (
     <div className={styles.flex}>
       {/* <figure className={styles.image}>
