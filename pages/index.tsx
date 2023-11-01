@@ -6,7 +6,7 @@ import { Title } from '../components/title/title'
 import { Rule } from '../components/rule/rule'
 import { Step } from '../components/step'
 import { Checker } from '../components/checker'
-import { Contact } from '../components/contact/contact'
+import { Caution } from '../components/caution/caution'
 
 export default function Home(): JSX.Element {
   return (
@@ -32,7 +32,7 @@ export default function Home(): JSX.Element {
             </Box>
           </Grid>
         </Grid>
-        <Contact />
+        <Caution />
       </main>
 
       <footer className={styles.footer}>Developed by {'ふー'}</footer>
