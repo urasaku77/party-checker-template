@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Grid, Box } from '@mui/material'
+import { Button, Grid, Box, TextField } from '@mui/material'
 import { Menu } from './menu/menu'
 import { Input } from './input'
 import { Result } from './result'
@@ -17,6 +17,7 @@ export function Checker() {
   const checkList: JSX.Element[] = []
   const countList: number[] = new Array(LIMITED.length)
 
+  const [tn, setTn] = useState('')
   const [isCheck, setIsCheck] = useState(false)
   const [isButton, setIsButton] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
@@ -30,12 +31,16 @@ export function Checker() {
   }
 
   useEffect(() => {
-    if (!inputs.map((input) => input.isError).includes(false) && !inputs.map((input) => input.value).includes('')) {
+    if (
+      !inputs.map((input) => input.isError).includes(false) &&
+      !inputs.map((input) => input.value).includes('') &&
+      tn.length > 0
+    ) {
       setIsButton(true)
     } else {
       setIsButton(false)
     }
-  }, [inputs])
+  }, [inputs, tn])
 
   function onclick() {
     const values = inputs.map((input) => input.value)
@@ -49,7 +54,7 @@ export function Checker() {
     })
     if (
       countList.filter((value, index) => value > LIMITED[index].num).length ||
-      countList.filter((value, index) => value > 0).length > 1
+      countList.filter((value) => value > 0).length > 1
     ) {
       setIsCheck(false)
     } else {
@@ -75,13 +80,25 @@ export function Checker() {
           <Menu title="パーティチェック" image="/nc139233.png" />
         </Box>
       </Grid>
+      <Grid item xs={12}>
+        <Box pt={3}>
+          <TextField
+            onChange={(event) => {
+              setTn(event.target.value)
+            }}
+            id="tn"
+            label="TN(トレーナーネーム)"
+            variant="filled"
+          />
+        </Box>
+      </Grid>
       {checkList}
       <Grid item xs={12}>
         <Box pt={3}>
           <Button variant="contained" onClick={onclick} disabled={!isButton}>
             チェック
           </Button>
-          <Result check={isCheck} open={isOpen} onClose={handleClose} />
+          <Result tn={tn} check={isCheck} open={isOpen} onClose={handleClose} />
         </Box>
       </Grid>
     </Grid>

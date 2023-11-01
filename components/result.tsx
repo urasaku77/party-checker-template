@@ -19,6 +19,7 @@ type Value = {
 }
 
 type Props = {
+  tn: string
   check: boolean
   open: boolean
   onClose: () => void
@@ -26,11 +27,14 @@ type Props = {
 
 export function Result(props: Props) {
   const [value, setValue] = useState<Value>({ color: 'info', title: 'info', message: '' })
-  const password = Date.now()
 
   useEffect(() => {
     if (props.check) {
-      setValue({ color: 'success', title: 'OK', message: 'チェック成功しました' })
+      setValue({
+        color: 'success',
+        title: 'OK',
+        message: `チェック成功しました。\nこの画面のスクリーンショットを主催者に提示し、大会IDを受け取ってください`,
+      })
     } else {
       setValue({ color: 'error', title: 'NG', message: '制限に引っかかっています。やり直してください' })
     }
@@ -44,15 +48,17 @@ export function Result(props: Props) {
           <Grid item xs={12}>
             <Alert severity={value.color}>
               <AlertTitle>{value.title}</AlertTitle>
-              <Box pt={0}>{value.message}</Box>
+              <Box pt={0} style={{ whiteSpace: 'pre-line' }}>
+                {value.message}
+              </Box>
             </Alert>
           </Grid>
           <Grid item xs={12} display={value.color == 'success' ? 'block' : 'none'}>
             <Box pt={5} textAlign={'center'} fontSize="1.5rem">
-              あいことば
+              TN（トレーナーネーム）
             </Box>
-            <Box pt={1} fontSize="2rem">
-              <strong>{password}</strong>
+            <Box pt={1} textAlign={'center'} fontSize="2rem">
+              <strong>{props.tn}</strong>
             </Box>
           </Grid>
         </Grid>
