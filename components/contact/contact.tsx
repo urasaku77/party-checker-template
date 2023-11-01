@@ -11,7 +11,10 @@ export function Contact() {
         <Grid item xs={12}>
           <Alert severity="warning">
             <AlertTitle>不具合が出た場合</AlertTitle>
-            以下の場合はX（旧Twitter）で<a href="https://twitter.com/Fooooooo628">開発者（ふー）</a>
+            以下の場合はX（旧Twitter）で
+            <a href="https://twitter.com/Fooooooo628" target="_blank" rel="noopener noreferrer">
+              開発者（ふー）
+            </a>
             へDMもしくは告知ツイートへのリプライでご連絡ください
             <ul>
               <li>ルールを守っているにも関わらず、チェッカーが通らない</li>
