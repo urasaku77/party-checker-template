@@ -28,7 +28,7 @@ export function Caution(): JSX.Element {
               </ul>
               開発者をブロックしている等、開発者へのDMもしくは告知ツイートへのリプライが難しい場合を除き、
               <p>システムに関する問い合わせは基本的に主催者には連絡しないでください。</p>
-            </Alert>{' '}
+            </Alert>
           </Box>
           <Box pt={3} p={1}>
             <Alert severity="error">
@@ -36,7 +36,7 @@ export function Caution(): JSX.Element {
               チェッカーを通して大会に参加したにも関わらず、パーティのルール違反が発覚した場合、該当者は荒らしとみなします。
               <br />
               <p>悪質な場合は今後の大会に参加することができなくなる可能性があります。</p>
-            </Alert>{' '}
+            </Alert>
           </Box>
         </Grid>
       </Grid>
