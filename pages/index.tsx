@@ -8,7 +8,7 @@ import { Step } from '../components/step'
 import { Checker } from '../components/checker'
 import { Contact } from '../components/contact/contact'
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <div className={styles.container}>
       <Head>
