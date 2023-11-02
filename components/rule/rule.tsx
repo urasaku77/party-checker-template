@@ -67,7 +67,7 @@ export function Rule(): JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                準伝説（パラドックス、四災、ウーラオス、オーガポン含む）
+                準伝説（パラドックス、四災、ウーラオス、ともっこ、オーガポン含む）
               </a>
               使用不可
             </li>
@@ -80,7 +80,7 @@ export function Rule(): JSX.Element {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                準伝説（パラドックス、四災、ウーラオス、オーガポン含む）
+                準伝説（パラドックス、四災、ウーラオス、ともっこ、オーガポン含む）
               </a>
               2体まで使用可能
             </li>
