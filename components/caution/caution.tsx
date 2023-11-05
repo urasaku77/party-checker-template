@@ -20,7 +20,15 @@ export function Caution(): JSX.Element {
               <a href="https://twitter.com/Fooooooo628" target="_blank" rel="noopener noreferrer">
                 開発者（ふー）
               </a>
-              へDMもしくは告知ツイートへのリプライでご連絡ください。
+              へDMもしくは
+              <a
+                href="https://twitter.com/Fooooooo628/status/1720084537248727279"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                告知ツイート
+              </a>
+              へのリプライでご連絡ください。
               <ul>
                 <li>ルールを守っているにも関わらず、チェッカーが通らない</li>
                 <li>自分の使いたいポケモンが選択肢にない（検索しても出てこない）</li>
