@@ -12,7 +12,7 @@ export default function Home(): JSX.Element {
   return (
     <div className={styles.container}>
       <Head>
-        <title>第9回パパママ杯</title>
+        <title>第◯回〇〇杯</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
